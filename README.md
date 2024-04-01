@@ -1,4 +1,4 @@
-# League_of_-Legends_chat
+# League_of_Legends_chat
 
 ## 📚 Sobre o Projeto
 
