@@ -1,7 +1,9 @@
 package com.barcelos.lolchat;
 
+import com.barcelos.lolchat.application.AskChampionUseCase;
 import com.barcelos.lolchat.application.ListChampionsUseCase;
 import com.barcelos.lolchat.domain.ports.ChampionsRepository;
+import com.barcelos.lolchat.domain.ports.GenerativeAiService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -10,12 +12,16 @@ import org.springframework.context.annotation.Bean;
 public class Application {
 
     public static void main(String[] args) {
-
         SpringApplication.run(Application.class, args);
     }
 
     @Bean
     public ListChampionsUseCase provideListChampionsUseCase(ChampionsRepository repository) {
         return new ListChampionsUseCase(repository);
+    }
+
+    @Bean
+    public AskChampionUseCase provideAskChampionUseCase(ChampionsRepository repository) {
+        return new AskChampionUseCase(repository);
     }
 }
