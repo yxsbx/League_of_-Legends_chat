@@ -21,6 +21,7 @@ public record AskChampionRestController(AskChampionUseCase useCase) {
     public record AskChampionRequest(String question) {
     }
 
+
     public record AskChampionResponse(String answer) {
     }
 }
