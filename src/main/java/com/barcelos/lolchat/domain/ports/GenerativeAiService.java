@@ -1,4 +1,6 @@
 package com.barcelos.lolchat.domain.ports;
 
-public class GenerativeAiService {
+public interface GenerativeAiService {
+
+    String generateContent(String objective, String context);
 }

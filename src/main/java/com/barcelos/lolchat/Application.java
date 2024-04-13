@@ -6,8 +6,10 @@ import com.barcelos.lolchat.domain.ports.ChampionsRepository;
 import com.barcelos.lolchat.domain.ports.GenerativeAiService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
+@EnableFeignClients
 @SpringBootApplication
 public class Application {
 
@@ -21,7 +23,8 @@ public class Application {
     }
 
     @Bean
-    public AskChampionUseCase provideAskChampionUseCase(ChampionsRepository repository) {
-        return new AskChampionUseCase(repository);
+    public AskChampionUseCase provideAskChampionUseCase(ChampionsRepository repository,
+                                                        GenerativeAiService genAiService) {
+        return new AskChampionUseCase(repository, genAiService);
     }
 }
